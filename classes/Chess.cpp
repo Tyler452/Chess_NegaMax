@@ -8,6 +8,10 @@
 Chess::Chess()
 {
     _grid = new Grid(8, 8);
+    for(int i=0; i<64; i++) {
+   //     _knightBitBoards[i] = generateKnightMoveBitBoard(i);
+    }
+    
 }
 
 Chess::~Chess()
@@ -65,42 +69,47 @@ void Chess::FENtoBoard(const std::string& fen) {
 
     // --- (1) piece placement: clear board then fill from placement field ---
     // clear any existing pieces first
-    _grid->forEachSquare([](ChessSquare* square, int x, int y) {
-        square->destroyBit();
+    // Clear existing pieces
+   _grid->forEachSquare([](ChessSquare* square, int, int) {
+        if (square) square->destroyBit();
     });
 
-    // Extract first token (piece placement). The input may be just the placement
-    // or a full FEN; using istringstream lets us read the first whitespace
-    // separated field easily.
     std::istringstream iss(fen);
-    std::string placement;
-    if (!(iss >> placement)) {
+    std::string placement, activeColor, castling, enpassant, halfmove, fullmove;
+    iss >> placement >> activeColor >> castling >> enpassant >> halfmove >> fullmove;
+
+    if (placement.empty())
         return;
-    }
 
     std::vector<std::string> ranks;
     {
-        std::istringstream rp(placement);
+        std::istringstream rankStream(placement);
         std::string rank;
-        while (std::getline(rp, rank, '/')) {
+        while (std::getline(rankStream, rank, '/'))
             ranks.push_back(rank);
-        }
     }
 
-    if (ranks.size() != 8) return;
+    if (ranks.size() != 8) {
+        std::cerr << "Invalid FEN: expected 8 ranks, got " << ranks.size() << "\n";
+        return;
+    }
 
     for (size_t r = 0; r < 8; ++r) {
-        const std::string &rankStr = ranks[r];
-        int y = 7 - static_cast<int>(r);
+        const std::string& rankStr = ranks[r];
+        int y = 7 - static_cast<int>(r); 
         int x = 0;
-        for (size_t i = 0; i < rankStr.size() && x < 8; ++i) {
-            char c = rankStr[i];
+
+        for (char c : rankStr) {
             if (std::isdigit(static_cast<unsigned char>(c))) {
-                x += c - '0';
+                x += c - '0'; 
                 continue;
             }
+
+            if (x >= 8) break;
+
             bool isWhite = std::isupper(static_cast<unsigned char>(c));
-            char lower = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+            char lower = std::tolower(static_cast<unsigned char>(c));
+
             ChessPiece piece = NoPiece;
             switch (lower) {
                 case 'p': piece = Pawn; break;
@@ -109,38 +118,38 @@ void Chess::FENtoBoard(const std::string& fen) {
                 case 'r': piece = Rook; break;
                 case 'q': piece = Queen; break;
                 case 'k': piece = King; break;
-                default: piece = NoPiece; break;
+                default:  piece = NoPiece; break;
             }
-            if (piece != NoPiece && x >= 0 && x < 8) {
+
+            if (piece != NoPiece) {
                 Bit* bit = PieceForPlayer(isWhite ? 0 : 1, piece);
-                ChessSquare* square = _grid->getSquare(x, y);
-                if (square) square->setBit(bit);
+                if (ChessSquare* square = _grid->getSquare(x, y)) {
+                    square->dropBitAtPoint(bit, square->getPosition());
+                }
             }
             ++x;
         }
     }
 
-    // --- (2)-(5) optional
-    std::string activeColor;   // (2)
-    std::string castling;      // (3)
-    std::string enpassant;     // (4)
-    std::string halfmove;      // (5)
-    std::string fullmove;      // (6)
-
-    if (iss >> activeColor) {
+    // --- Handle optional FEN fields if provided ---
+    if (!activeColor.empty()) {
 
     }
-    if (iss >> castling) {
+
+    if (!castling.empty() && castling != "-") {
+
+    }
+
+    if (!enpassant.empty() && enpassant != "-") {
+
+    }
+
+    if (!halfmove.empty()) {
         
     }
-    if (iss >> enpassant) {
-        
-    }
-    if (iss >> halfmove) {
-        
-    }
-    if (iss >> fullmove) {
-        
+
+    if (!fullmove.empty()) {
+
     }
 }
 
@@ -220,3 +229,20 @@ void Chess::setStateString(const std::string &s)
         }
     });
 }
+
+/*BitBoard Chess::generateKnightMoveBitBoard(int square){
+    BitBoard moves = 0ULL;
+    int rank = square / 8;
+    int file = square % 8;
+
+    int knightMoves[8][2] = {
+        {2, 1}, {2, -1}, {-2, 1}, {-2, -1},
+        {1, 2}, {1, -2}, {-1, 2}, {-1, -2}
+    };
+
+    
+    }
+
+    return moves;
+}
+*/

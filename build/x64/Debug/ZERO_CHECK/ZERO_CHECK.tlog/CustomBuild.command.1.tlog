@@ -1,0 +1,10 @@
+^C:\USERS\TYLER\CST-426\CHESS_ASSIGNMENT-MAIN\BUILD\CMAKEFILES\01686A6919CB7EE5F746F50829ACC54D\GENERATE.STAMP.RULE
+setlocal
+C:\CMake\bin\cmake.exe -SC:/Users/tyler/CST-426/Chess_assignment-main -BC:/Users/tyler/CST-426/Chess_assignment-main/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/tyler/CST-426/Chess_assignment-main/build/tictactoe.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

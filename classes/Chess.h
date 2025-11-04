@@ -44,6 +44,7 @@ private:
     Player* ownerAt(int x, int y) const;
     void FENtoBoard(const std::string& fen);
     char pieceNotation(int x, int y) const;
+   // BitBoard Chess::generateKnightMoveBitBoard(int square) const;
 
     Grid* _grid;
 };
