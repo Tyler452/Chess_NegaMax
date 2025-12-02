@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\tyler\CST-426\Chess_assignment-main\build\CMakeFiles\01686a6919cb7ee5f746f50829acc54d\Continuous.rule">
+    <CustomBuild Include="C:\Users\tyler\Chess_assignment-new\build\CMakeFiles\7a2af15b802072577a76cb69991e7ef6\Continuous.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\tyler\CST-426\Chess_assignment-main\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\tyler\Chess_assignment-new\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\tyler\CST-426\Chess_assignment-main\build\CMakeFiles\Continuous" />
+    <None Include="C:\Users\tyler\Chess_assignment-new\build\CMakeFiles\Continuous" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{BE677577-55BA-3BEF-8F2C-FBFD3E42639A}</UniqueIdentifier>
+      <UniqueIdentifier>{B184A629-A5C0-3E70-8CC0-E526D7E5EA1A}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
