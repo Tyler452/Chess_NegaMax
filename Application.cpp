@@ -76,6 +76,27 @@ namespace ClassGame {
                         ImGui::Text("%s", stateString.substr(y*stride,stride).c_str());
                     }
                     ImGui::Text("Current Board State: %s", game->stateString().c_str());
+
+                    if (Chess* chess = dynamic_cast<Chess*>(game)) {
+                        ImGui::Separator();
+                        bool aiEnabled = chess->isAIEnabled();
+                        if (ImGui::Button(aiEnabled ? "Stop Chess AI" : "Let Chess AI Play")) {
+                            if (aiEnabled) {
+                                chess->disableAI();
+                            } else {
+                                chess->enableAIForColor(chess->preferredAIColor());
+                            }
+                        }
+
+                        int aiColor = chess->preferredAIColor();
+                        ImGui::Text("AI Color Selection:");
+                        if (ImGui::Button(aiColor == 0 ? "AI plays White (selected)" : "Set AI to White")) {
+                            chess->setPreferredAIColor(0);
+                        }
+                        if (ImGui::Button(aiColor == 1 ? "AI plays Black (selected)" : "Set AI to Black")) {
+                            chess->setPreferredAIColor(1);
+                        }
+                    }
                 }
                 ImGui::End();
 
