@@ -1,5 +1,3 @@
-
-https://github.com/user-attachments/assets/c1bdee91-06c4-4dc6-90e3-4fdd60a934fb
 # Chess Game
 
 ## What's Implemented
