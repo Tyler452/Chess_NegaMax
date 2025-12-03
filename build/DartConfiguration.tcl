@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/tyler/Chess_assignment-new
-BuildDirectory: C:/Users/tyler/Chess_assignment-new/build
+SourceDirectory: C:/Users/tyler/CST-426/Chess_assignment-main
+BuildDirectory: C:/Users/tyler/CST-426/Chess_assignment-main/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/CMake/bin/cmake.exe" "C:/Users/tyler/Chess_assignment-new"
+ConfigureCommand: "C:/CMake/bin/cmake.exe" "C:/Users/tyler/CST-426/Chess_assignment-main"
 MakeCommand: C:\CMake\bin\cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -63,7 +63,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe
 CompilerVersion: 19.44.35215.0
 
 # Dynamic analysis (MemCheck)
