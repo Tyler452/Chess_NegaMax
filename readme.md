@@ -20,5 +20,4 @@
 - **Challenges:** One challeneg was getting the negamax to work as intended. Another Challenge was getting the legal moves.
 
 - ## Video
-  https://github.com/user-attachments/assets/d80c8ba1-bacc-4d2b-9055-8de940a5f848
 
