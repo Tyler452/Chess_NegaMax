@@ -1,3 +1,5 @@
+
+https://github.com/user-attachments/assets/c1bdee91-06c4-4dc6-90e3-4fdd60a934fb
 # Chess Game
 
 ## What's Implemented
@@ -20,4 +22,4 @@
 - **Challenges:** One challeneg was getting the negamax to work as intended. Another Challenge was getting the legal moves.
 
 - ## Video
-
+https://github.com/user-attachments/assets/2922cd4f-69bd-4960-aaca-eb7d1265d7b6
