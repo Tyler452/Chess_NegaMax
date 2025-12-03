@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/tyler/CST-426/Chess_assignment-main
-BuildDirectory: C:/Users/tyler/CST-426/Chess_assignment-main/build
+SourceDirectory: C:/Users/tyler/Chess_assignment-new
+BuildDirectory: C:/Users/tyler/Chess_assignment-new/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/CMake/bin/cmake.exe" "C:/Users/tyler/CST-426/Chess_assignment-main"
+ConfigureCommand: "C:/CMake/bin/cmake.exe" "C:/Users/tyler/Chess_assignment-new"
 MakeCommand: C:\CMake\bin\cmake.exe --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

@@ -58,35 +58,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Continuous::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Continuous-Debug-98886eda9f0829045b4a.json",
+					"jsonFile" : "target-Continuous-Debug-3a97f5b94af447ef7eea.json",
 					"name" : "Continuous",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Experimental::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Experimental-Debug-679a18547d164c79142c.json",
+					"jsonFile" : "target-Experimental-Debug-a56e8c993a9f11a6719b.json",
 					"name" : "Experimental",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Nightly::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Nightly-Debug-0644e9503c9d4b56b5d5.json",
+					"jsonFile" : "target-Nightly-Debug-5c36100ff12f72438425.json",
 					"name" : "Nightly",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "NightlyMemoryCheck::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-NightlyMemoryCheck-Debug-c35a907492a9f6cf8e2a.json",
+					"jsonFile" : "target-NightlyMemoryCheck-Debug-a414538a86259b2ac5df.json",
 					"name" : "NightlyMemoryCheck",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Debug-962e8e7c0f1c66a46393.json",
+					"jsonFile" : "target-ZERO_CHECK-Debug-84d00f630fd4c116ad23.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
@@ -156,35 +156,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Continuous::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Continuous-Release-98886eda9f0829045b4a.json",
+					"jsonFile" : "target-Continuous-Release-3a97f5b94af447ef7eea.json",
 					"name" : "Continuous",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Experimental::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Experimental-Release-679a18547d164c79142c.json",
+					"jsonFile" : "target-Experimental-Release-a56e8c993a9f11a6719b.json",
 					"name" : "Experimental",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Nightly::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Nightly-Release-0644e9503c9d4b56b5d5.json",
+					"jsonFile" : "target-Nightly-Release-5c36100ff12f72438425.json",
 					"name" : "Nightly",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "NightlyMemoryCheck::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-NightlyMemoryCheck-Release-c35a907492a9f6cf8e2a.json",
+					"jsonFile" : "target-NightlyMemoryCheck-Release-a414538a86259b2ac5df.json",
 					"name" : "NightlyMemoryCheck",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-Release-962e8e7c0f1c66a46393.json",
+					"jsonFile" : "target-ZERO_CHECK-Release-84d00f630fd4c116ad23.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
@@ -254,35 +254,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Continuous::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Continuous-MinSizeRel-98886eda9f0829045b4a.json",
+					"jsonFile" : "target-Continuous-MinSizeRel-3a97f5b94af447ef7eea.json",
 					"name" : "Continuous",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Experimental::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Experimental-MinSizeRel-679a18547d164c79142c.json",
+					"jsonFile" : "target-Experimental-MinSizeRel-a56e8c993a9f11a6719b.json",
 					"name" : "Experimental",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Nightly::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Nightly-MinSizeRel-0644e9503c9d4b56b5d5.json",
+					"jsonFile" : "target-Nightly-MinSizeRel-5c36100ff12f72438425.json",
 					"name" : "Nightly",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "NightlyMemoryCheck::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-NightlyMemoryCheck-MinSizeRel-c35a907492a9f6cf8e2a.json",
+					"jsonFile" : "target-NightlyMemoryCheck-MinSizeRel-a414538a86259b2ac5df.json",
 					"name" : "NightlyMemoryCheck",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-962e8e7c0f1c66a46393.json",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-84d00f630fd4c116ad23.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
@@ -352,35 +352,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Continuous::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Continuous-RelWithDebInfo-98886eda9f0829045b4a.json",
+					"jsonFile" : "target-Continuous-RelWithDebInfo-3a97f5b94af447ef7eea.json",
 					"name" : "Continuous",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Experimental::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Experimental-RelWithDebInfo-679a18547d164c79142c.json",
+					"jsonFile" : "target-Experimental-RelWithDebInfo-a56e8c993a9f11a6719b.json",
 					"name" : "Experimental",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Nightly::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Nightly-RelWithDebInfo-0644e9503c9d4b56b5d5.json",
+					"jsonFile" : "target-Nightly-RelWithDebInfo-5c36100ff12f72438425.json",
 					"name" : "Nightly",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "NightlyMemoryCheck::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-NightlyMemoryCheck-RelWithDebInfo-c35a907492a9f6cf8e2a.json",
+					"jsonFile" : "target-NightlyMemoryCheck-RelWithDebInfo-a414538a86259b2ac5df.json",
 					"name" : "NightlyMemoryCheck",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-962e8e7c0f1c66a46393.json",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-84d00f630fd4c116ad23.json",
 					"name" : "ZERO_CHECK",
 					"projectIndex" : 0
 				},
@@ -397,8 +397,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/tyler/CST-426/Chess_assignment-main/build",
-		"source" : "C:/Users/tyler/CST-426/Chess_assignment-main"
+		"build" : "C:/Users/tyler/Chess_assignment-new/build",
+		"source" : "C:/Users/tyler/Chess_assignment-new"
 	},
 	"version" : 
 	{

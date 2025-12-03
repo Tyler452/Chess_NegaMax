@@ -5,8 +5,8 @@
 cmake_minimum_required(VERSION 4.1.0)
 
 # CTest Start Step
-set(CTEST_SOURCE_DIRECTORY "C:/Users/tyler/CST-426/Chess_assignment-main")
-set(CTEST_BINARY_DIRECTORY "C:/Users/tyler/CST-426/Chess_assignment-main/build")
+set(CTEST_SOURCE_DIRECTORY "C:/Users/tyler/Chess_assignment-new")
+set(CTEST_BINARY_DIRECTORY "C:/Users/tyler/Chess_assignment-new/build")
 
 # CTest Update Step
 set(CTEST_UPDATE_COMMAND "C:/Program Files/Git/cmd/git.exe")

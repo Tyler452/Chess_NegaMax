@@ -43,7 +43,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
+			"value" : "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/lib.exe"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -499,7 +499,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community"
+			"value" : "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools"
 		},
 		{
 			"name" : "CMAKE_GENERATOR_PLATFORM",
@@ -563,7 +563,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
+			"value" : "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/link.exe"
 		},
 		{
 			"name" : "CMAKE_LIST_FILE_NAME",
@@ -671,7 +671,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "CMAKE_MT-NOTFOUND"
+			"value" : "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/mt.exe"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -831,7 +831,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "rc"
+			"value" : "C:/Program Files (x86)/Windows Kits/10/bin/10.0.26100.0/x86/rc.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER_WORKS",
