@@ -54,6 +54,11 @@ private:
     std::vector<BitMove> generatePawnMoves(int square, bool isWhite) const;
     std::vector<BitMove> generateValidMoves(int square) const;
     std::vector<BitMove> generateAllLegalMoves(bool forWhite);
+    std::vector<BitMove> filterLegalMoves(const std::string& state,
+                                          const std::vector<BitMove>& moves,
+                                          bool isWhiteTurn) const;
+    bool isKingInCheck(const std::string& state, bool whiteKing) const;
+    bool isSquareAttacked(const std::string& state, int square, bool byWhite) const;
 
     // Helpers for negamax search on serialized board state
     std::vector<BitMove> generateAllLegalMovesFromState(const std::string& state,

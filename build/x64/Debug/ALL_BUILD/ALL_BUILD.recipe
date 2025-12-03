@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\tyler\CST-426\Chess_assignment-main\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\tyler\Chess_assignment-new\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\tyler\CST-426\Chess_assignment-main\build\Debug\demo.exe</FullPath>
+      <FullPath>C:\Users\tyler\Chess_assignment-new\build\Debug\demo.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\tyler\CST-426\Chess_assignment-main\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>C:\Users\tyler\Chess_assignment-new\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

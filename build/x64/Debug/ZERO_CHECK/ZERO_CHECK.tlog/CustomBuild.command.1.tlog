@@ -1,6 +1,6 @@
-^C:\USERS\TYLER\CST-426\CHESS_ASSIGNMENT-MAIN\BUILD\CMAKEFILES\01686A6919CB7EE5F746F50829ACC54D\GENERATE.STAMP.RULE
+^C:\USERS\TYLER\CHESS_ASSIGNMENT-NEW\BUILD\CMAKEFILES\7A2AF15B802072577A76CB69991E7EF6\GENERATE.STAMP.RULE
 setlocal
-C:\CMake\bin\cmake.exe -SC:/Users/tyler/CST-426/Chess_assignment-main -BC:/Users/tyler/CST-426/Chess_assignment-main/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/tyler/CST-426/Chess_assignment-main/build/tictactoe.sln
+C:\CMake\bin\cmake.exe -SC:/Users/tyler/Chess_assignment-new -BC:/Users/tyler/Chess_assignment-new/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/tyler/Chess_assignment-new/build/tictactoe.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

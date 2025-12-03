@@ -226,9 +226,12 @@ bool Chess::canBitMoveFrom(Bit &bit, BitHolder &src)
     
     // Generate all valid moves for this piece
     std::vector<BitMove> validMoves = generateValidMoves(srcIndex);
+    const std::string state = stateString();
+    const bool isWhitePiece = (bit.gameTag() < 128);
+    std::vector<BitMove> legalMoves = filterLegalMoves(state, validMoves, isWhitePiece);
     
     // Highlight all valid destination squares
-    for (const auto& move : validMoves) {
+    for (const auto& move : legalMoves) {
         int destX, destY;
         indexToSquare(move.to, destX, destY);
         ChessSquare* destSquare = _grid->getSquare(destX, destY);
@@ -259,9 +262,12 @@ bool Chess::canBitMoveFromTo(Bit &bit, BitHolder &src, BitHolder &dst)
     int dstIndex = squareToIndex(dstX, dstY);
     
     std::vector<BitMove> validMoves = generateValidMoves(srcIndex);
+    const std::string state = stateString();
+    const bool isWhitePiece = (bit.gameTag() < 128);
+    std::vector<BitMove> legalMoves = filterLegalMoves(state, validMoves, isWhitePiece);
     
     // Check if this is a valid move
-    for (const BitMove& move : validMoves) {
+    for (const BitMove& move : legalMoves) {
         if (move.to == dstIndex) {
             // Valid move; actual capture/removal happens when the engine finalizes the move
             return true;
@@ -303,12 +309,27 @@ Player* Chess::ownerAt(int x, int y) const
 
 Player* Chess::checkForWinner()
 {
+    const std::string state = stateString();
+    const bool whiteTurn = (getCurrentPlayer()->playerNumber() == 0);
+    const bool inCheck = isKingInCheck(state, whiteTurn);
+    const std::vector<BitMove> legalMoves = generateAllLegalMovesFromState(state, whiteTurn);
+
+    if (inCheck && legalMoves.empty()) {
+        const int winnerIndex = whiteTurn ? 1 : 0;
+        return getPlayerAt(winnerIndex);
+    }
+
     return nullptr;
 }
 
 bool Chess::checkForDraw()
 {
-    return false;
+    const std::string state = stateString();
+    const bool whiteTurn = (getCurrentPlayer()->playerNumber() == 0);
+    const bool inCheck = isKingInCheck(state, whiteTurn);
+    const std::vector<BitMove> legalMoves = generateAllLegalMovesFromState(state, whiteTurn);
+
+    return !inCheck && legalMoves.empty();
 }
 
 std::string Chess::initialStateString()
@@ -656,6 +677,7 @@ void Chess::updateAI()
 
 std::vector<BitMove> Chess::generateAllLegalMoves(bool forWhite)
 {
+    updateBitboards();
     std::vector<BitMove> moves;
     _grid->forEachSquare([&](ChessSquare* square, int x, int y) {
         if (!square) return;
@@ -667,7 +689,8 @@ std::vector<BitMove> Chess::generateAllLegalMoves(bool forWhite)
         auto pieceMoves = generateValidMoves(index);
         moves.insert(moves.end(), pieceMoves.begin(), pieceMoves.end());
     });
-    return moves;
+    const std::string state = stateString();
+    return filterLegalMoves(state, moves, forWhite);
 }
 
 std::vector<BitMove> Chess::generatePawnMovesFromState(int square,
@@ -826,7 +849,7 @@ std::vector<BitMove> Chess::generateAllLegalMovesFromState(const std::string& st
         }
     }
 
-    return moves;
+    return filterLegalMoves(state, moves, isWhiteTurn);
 }
 
 std::vector<BitMove> Chess::generateAllMoves(const std::string& state, int playerColor) const
@@ -883,7 +906,11 @@ int Chess::negamax(std::string& state, int depth, int alpha, int beta, int playe
 
     std::vector<BitMove> newMoves = generateAllMoves(state, playerColor);
     if (newMoves.empty()) {
-        return evaluateBoard(state) * playerColor;
+        const bool whiteTurn = (playerColor == WhiteColor);
+        if (isKingInCheck(state, whiteTurn)) {
+            return negInfinite + depth;
+        }
+        return 0;
     }
 
     int bestVal = negInfinite;
@@ -908,5 +935,140 @@ int Chess::negamax(std::string& state, int depth, int alpha, int beta, int playe
     }
 
     return bestVal;
+}
+
+std::vector<BitMove> Chess::filterLegalMoves(const std::string& state,
+                                             const std::vector<BitMove>& moves,
+                                             bool isWhiteTurn) const
+{
+    std::vector<BitMove> legalMoves;
+    legalMoves.reserve(moves.size());
+
+    for (const BitMove& move : moves) {
+        std::string nextState = applyMoveToState(state, move);
+        if (!isKingInCheck(nextState, isWhiteTurn)) {
+            legalMoves.push_back(move);
+        }
+    }
+
+    return legalMoves;
+}
+
+bool Chess::isKingInCheck(const std::string& state, bool whiteKing) const
+{
+    const char kingChar = whiteKing ? 'K' : 'k';
+    int kingSquare = -1;
+    for (int square = 0; square < static_cast<int>(state.size()); ++square) {
+        if (state[square] == kingChar) {
+            kingSquare = square;
+            break;
+        }
+    }
+
+    if (kingSquare == -1) {
+        // Missing king is an invalid state; treat as check to block the move.
+        return true;
+    }
+
+    return isSquareAttacked(state, kingSquare, !whiteKing);
+}
+
+bool Chess::isSquareAttacked(const std::string& state, int targetSquare, bool byWhite) const
+{
+    if (targetSquare < 0 || targetSquare >= 64) {
+        return false;
+    }
+
+    uint64_t whitePieces = 0ULL;
+    uint64_t blackPieces = 0ULL;
+
+    for (int square = 0; square < 64; ++square) {
+        char c = state[square];
+        if (c == '0') {
+            continue;
+        }
+
+        const bool isWhitePiece = std::isupper(static_cast<unsigned char>(c));
+        uint64_t mask = 1ULL << square;
+        if (isWhitePiece) {
+            whitePieces |= mask;
+        } else {
+            blackPieces |= mask;
+        }
+    }
+
+    const uint64_t allPieces = whitePieces | blackPieces;
+    const uint64_t targetMask = 1ULL << targetSquare;
+
+    for (int square = 0; square < 64; ++square) {
+        char c = state[square];
+        if (c == '0') {
+            continue;
+        }
+
+        const bool isWhitePiece = std::isupper(static_cast<unsigned char>(c));
+        if (isWhitePiece != byWhite) {
+            continue;
+        }
+
+        const char pieceChar = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+        switch (pieceChar) {
+            case 'p': {
+                const int rank = square / 8;
+                const int file = square % 8;
+                const int direction = byWhite ? 1 : -1;
+                const int attackRank = rank + direction;
+                if (attackRank >= 0 && attackRank < 8) {
+                    const int leftFile = file - 1;
+                    const int rightFile = file + 1;
+                    if (leftFile >= 0) {
+                        if (attackRank * 8 + leftFile == targetSquare) {
+                            return true;
+                        }
+                    }
+                    if (rightFile < 8) {
+                        if (attackRank * 8 + rightFile == targetSquare) {
+                            return true;
+                        }
+                    }
+                }
+                break;
+            }
+            case 'n': {
+                if (_knightMoves[square].getData() & targetMask) {
+                    return true;
+                }
+                break;
+            }
+            case 'b': {
+                if (getBishopAttacks(square, allPieces) & targetMask) {
+                    return true;
+                }
+                break;
+            }
+            case 'r': {
+                if (getRookAttacks(square, allPieces) & targetMask) {
+                    return true;
+                }
+                break;
+            }
+            case 'q': {
+                if (getQueenAttacks(square, allPieces) & targetMask) {
+                    return true;
+                }
+                break;
+            }
+            case 'k': {
+                if (_kingMoves[square].getData() & targetMask) {
+                    return true;
+                }
+                break;
+            }
+            default:
+                break;
+        }
+    }
+
+    return false;
 }
 
