@@ -17,4 +17,8 @@
 - **Evaluation:** Using the simple numbers(P=100, N=200, B=230, R=400, Q=900, K=2000). Positive scores favor White; the score is multiplied by the side to move during negamax.
 - **Color Support:** By default the AI plays as Black, but the UI toggle allows either color.
 - **Strength:** With depth 5 and pruning, it avoids blunders, captures loose pieces, and will beat casual players in the middlegame. Without positional heuristics it can still be outplayed strategically.
-- **Challenges:** One challeneg was getting the negamax to work as intended. Another Challenge was getting the legal moves. 
+- **Challenges:** One challeneg was getting the negamax to work as intended. Another Challenge was getting the legal moves.
+
+- ## Video
+  https://github.com/user-attachments/assets/d80c8ba1-bacc-4d2b-9055-8de940a5f848
+
